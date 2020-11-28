@@ -5,13 +5,17 @@
 
 int main(void)
 {
-    // conversions that do not loos information, ie promotions, are not too problematic
+    // conversions that do not loose information, ie promotions, are not too problematic
+    // and I do not think that there is a way to emit a warning for these
 
     int start_int = -125;
     long long int end_longlongint = start_int;
 
     std::cout << "start_int is " << start_int << std::endl;
     std::cout << "end_longlongint is " << end_longlongint << std::endl;
+
+    // one exception may be float being promoted to double in embedded
+    float a_float = 12.4;
 
     // conversions loosing information are especially problematic
 
