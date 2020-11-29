@@ -1,8 +1,13 @@
-template<typename user_type, typename user_function = user_type(*)(user_type)>
-auto func_with_callback(user_type input, user_function func = [](auto x){return x;}){
+#include "iostream"
+
+template <typename user_type>
+auto func_with_callback(
+    user_type input,
+    void (*callback)(user_type) = [](auto x) {std::cout << "default callback" << std::endl;})
+{
     // have some callback action
-    auto output = func(input);
+    callback(input);
 
     // here we would do fancy stuff on the input
-    return output;
+    return input;
 }
