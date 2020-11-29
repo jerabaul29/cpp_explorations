@@ -1,10 +1,8 @@
-template<typename user_type, typename user_function>
-auto func_with_callback(user_type input, user_function func){
-    return func(input);
-}
+template<typename user_type, typename user_function = user_type(*)(user_type)>
+auto func_with_callback(user_type input, user_function func = [](auto x){return x;}){
+    // have some callback action
+    auto output = func(input);
 
-// we have to define the "default base case".
-template<typename user_type>
-int func_with_callback(user_type x){
-    return func_with_callback(x, [](auto x){return x;});
+    // here we would do fancy stuff on the input
+    return output;
 }
