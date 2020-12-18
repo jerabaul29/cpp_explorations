@@ -5,6 +5,11 @@ int main()
     char buffer_out[32];
 
     // printing an int in fixed format
+    int some_int_1 {13};
+    sprintf(buffer_out, "%03E", some_int_1);  // force putting sign, use leading 0s, 5 chars fixed width, int printing
+    std::cout << buffer_out << std::endl;
+
+    // printing an int in fixed format
     int some_int {123};
     sprintf(buffer_out, "%+05i", some_int);  // force putting sign, use leading 0s, 5 chars fixed width, int printing
     std::cout << buffer_out << std::endl;
